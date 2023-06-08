@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style w JavaScript</title>
+    <link rel="stylesheet" href="styl6.css">
+</head>
+<body>
+    <div class="lewy">
+        <h1>Konfigurator stylu</h1><br>
+        <p>Podaj kolor tła<br>
+            <button id="indigo" onclick="zmienTlo(indigo)">Indigo</button>
+            <button id="steelblue" onclick="zmienTlo(SteelBlue)">SteelBlue</button>
+            <button id="olive" onclick="zmienTlo(olive)">Olive</button>
+        </p>
+        <p>
+            Podaj kolor czcionki<br>
+            <select name="" id="" onchange="zmienCzcionke(value)">
+                <option value="checkWhite">White</option>
+                <option value="checkTan">Tan</option>
+                <option value="checkBisque">Bisque</option>
+                <option value="checkPlum">Plum</option>
+            </select>
+        </p>
+        <p>  
+            Podaj rozmiar czcionki w procentach, np. 200%<br>
+            <input type="text" value="100%" onchange="zmienRozmiar(value)" id="rozmiarCzcionki">
+        </p>
+        <p>
+            Czy rysunek ma mieć ramkę?<br>
+            <input type="checkbox" name="" id="Rysuj" checked onchange="isChecked(checkRysuj)"><span>Rysuj ramkę</span>
+        </p>
+        <p>
+            Jaki jest typ punktora listy?<br>
+            <input type="radio" name="typ" checked value="disc" onchange="rabotaj(dysc)"><span>dysk</span><br>
+            <input type="radio" name="typ" value="square" onchange="rabotaj(kwadrat)"><span>kwadrat</span><br>
+            <input type="radio" name="typ" value="circle" onchange="rabotaj(kolo)"><span>okrąg</span>
+        </p>
+    </div>
+    <div class="prawy">
+        <img src="gibraltar.jpg" alt="półwysep Gibraltar">
+        <ul>
+            <li>element 1</li>
+            <li>element 2</li>
+            <li>element 3</li>
+        </ul>
+        <p id="el">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, iusto voluptates! 
+            Illo autem dolore sit temporibus voluptatibus sint,
+            neque nihil distinctio numquam totam unde vitae libero voluptatum doloribus a eum.
+        </p>
+    </div>
+    <div class="stopka">
+        Autor: Ivan Drobakha
+    </div>
+    <script>
+        const prawy = document.querySelector(".prawy");
+        const indigo = "tloIndigo";
+        const SteelBlue = "tloSteelBlue";
+        const olive = "tloOlive";
+        function zmienTlo(color) {
+           switch (color) {
+            case "tloIndigo":
+             prawy.style.backgroundColor = "indigo";
+             break;
+            case "tloSteelBlue":
+             prawy.style.backgroundColor = "steelblue";
+             break;
+            case "tloOlive":
+             prawy.style.backgroundColor = "olive";
+             break;
+    }
+}
+
+        const wybor = document.querySelectorAll("option");
+        const colorCzcionki = wybor.values;
+        function zmienCzcionke(col) {
+           switch (col) {
+            case "checkWhite":
+             prawy.style.color = "white";
+             break;
+            case "checkTan":
+             prawy.style.color = "tan";
+             break;
+            case "checkBisque":
+             prawy.style.color = "bisque";
+             break;
+             case "checkPlum":
+             prawy.style.color = "plum";
+             break;
+    }
+}
+        const rozmiarCzcionki = document.getElementById("rozmiarCzcionki");
+        function zmienRozmiar(rozmiar) {
+         prawy.style.fontSize = rozmiar;
+        }
+
+        const checkRysuj = document.querySelector("#Rysuj");
+        const obraz = document.querySelector("img");
+        function isChecked (box) {
+            if(!box.checked) {
+                obraz.style.border = "0px";
+            }else {
+                obraz.style.border = "1px solid white";
+            }
+        }
+        const dysc = "disc";
+        const kwadrat = "square";
+        const kolo = "circle";
+        const spis = document.querySelector("ul");
+        function rabotaj (box) {
+            spis.style.listStyleType = box;
+        }
+    </script>
+</body>
+</html>
