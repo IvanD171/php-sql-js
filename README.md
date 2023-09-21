@@ -1,2 +1,2 @@
 # php-sql-js
-There are websites can run by XAMP or MAMP.
+There are websites created by me can run by XAMP or MAMP.
